@@ -1,6 +1,20 @@
-// CAC-TAT.spec.js created with Cypress
-//
-// Start writing your Cypress tests below!
-// If you're unfamiliar with how Cypress works,
-// check out the link below and learn how to write your first test:
-// https://on.cypress.io/writing-first-test
+/// <reference types="Cypress" />
+
+describe('Central de Atendimento ao Cliente TAT', () => {
+
+    beforeEach(() => {
+        cy.visit('./src/index.html')
+    })
+
+    it('verifica o título da aplicação', () => {
+        cy.title().should('contains', 'Central de Atendimento ao Cliente TAT')  
+    })
+    it('preenche os campos obrigatórios e envia o formulário', () => {
+        cy.get('#firstName').type('Eduardo')
+        cy.get('#lastName').type('Quaresimin Santos')
+        cy.get('#email').type('eduardoquaresimin@gmail.com')
+        cy.get('#open-text-area').type('Escrevendo qualquer coisa.')
+        cy.contains('button', 'Enviar').click()
+        cy.contains('span', 'Mensagem enviada com sucesso.').should('be.visible')
+    })
+  })
