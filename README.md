@@ -1,4 +1,4 @@
-# Cypress-basico
+# Cypress Basico (TAT)
 
 Sample project for the basic cypress course of the Talking About Testing (TAT) online school.
 
